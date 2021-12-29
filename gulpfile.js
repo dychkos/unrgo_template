@@ -1,12 +1,11 @@
 const 
 	gulp = require('gulp'),
-	sass = require('gulp-scss')(require('scss')),
+	sass = require('gulp-sass')(require('sass')),
 	autoprefixer = require('gulp-autoprefixer'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	browsersync = require('browser-sync').create(),
 	del = require('del'),
-	jade2 = require('gulp-jade'),
 	rename = require('gulp-rename'),
 	cssnano = require('gulp-cssnano'),
 	cleanCSS = require('gulp-clean-css'),
@@ -57,25 +56,9 @@ function compileSass(done) {
 	done();
 }
 
-function compileJade2(done) {
-  	return gulp.src('app/jade/**/*.jade')
-	.pipe(
-		jade2({
-			pretty: true
-		}).on('error', notify.onError(function (error) {
-			return 'An error occurred while compiling jade.\nLook in the console for details.\n' + error;
-		}))
-	)
-    .pipe(gulp.dest('app'))
-    .pipe(browsersync.stream());
-  
-	done();
-}
 
 function watchFiles(done) {
 	gulp.watch('app/scss/**/*.scss', gulp.series(compileSass));
-	gulp.watch('app/jade/**/*.jade', gulp.series(compileJade2));
-
 	gulp.watch('app/*.html', browsersync.reload);
 	gulp.watch('app/css/*.css', browsersync.reload);
 	gulp.watch('app/js/**/*.js', browsersync.reload);
@@ -127,7 +110,7 @@ function moveJSToDist(done) {
 
 gulp.task('build',  
 	gulp.series(
-		removeDist,compileSass, compileCSSlibs, compileScripts, compileJade2,
+		removeDist,compileSass, compileCSSlibs, compileScripts,
 		moveFontsToDist, moveImgToDist, moveHtmlToDist, moveCssToDist, moveJSToDist
 	), function(done) {
 		done();

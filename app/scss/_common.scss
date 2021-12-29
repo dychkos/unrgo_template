@@ -1,0 +1,248 @@
+body{
+	background-color: $background-dark;
+	font-family: Rubik-Regular;
+}
+
+.hide{
+	display: none;
+}
+
+.logo{
+	display: flex;
+	align-items: center;
+	&__image{
+		height: 60px;
+		width: 60px;
+		margin-right: 8px;
+		img{
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	@media only screen and (max-width: 991px){
+		margin: 0 auto;
+		.logo__image{
+			margin: 0 auto;
+		}
+	}
+
+}
+
+.search{
+	padding: 0;
+	&__wrapper{
+		width: 60px;
+		height: 60px;
+		background-color: $background-light;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 20px;
+		cursor: pointer;
+		transition: width 0.3s ease-in-out;
+	}
+	&_white{
+		svg{
+			width: 36px;
+			height: 36px;
+			path{
+				stroke: $white;
+			}
+		}
+	}
+	&.open{
+		padding: 0 20px;
+		height: 60px;
+		width: 320px;
+		display: flex;
+		border-radius: 20px;
+		align-items: center;
+		background-color: $background-light;
+		transition: all, 0.3s ease-in-out;
+		transition-property: background-color, padding,width;
+		.search__input{
+			display: block;
+		}
+		svg{
+			margin-right: 10px;
+			path{
+				stroke: $black;
+			}
+		}
+
+	}
+	&__input{
+		display: none;
+		width: 100%;
+		transition: opacity 0.3s ease-in-out;
+		input{
+			border: none;
+			background-color: $background-light;
+			color:$black;
+			padding-top: 4px;
+			width: 100%;
+			&::placeholder{
+				color: $gray;
+			}
+		}
+
+	}
+}
+
+@media only screen and (max-width: 991px){
+	.search {
+		&.open{
+			position: absolute;
+			width: 100%;
+			height: 80px;
+			top: 0;
+			left: 0;
+			border-radius: 0;
+		}
+	}
+	}
+
+
+.social{
+	&__item{
+		text-align: center;
+	}
+}
+
+.mail{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px 0;
+	&__image{
+		margin-right: 8px;
+	}
+	&__text{
+		color: $primary;
+		font-family: Rubik-Bold;
+	}
+}
+
+/*
+ * Buttons styling
+ */
+
+.btn{
+	display: inline-block;
+	line-height: 1;
+	min-width: min-content;
+	white-space: nowrap;
+	transition: all .25s ease-in-out;
+	padding: 12px 30px;
+	border-radius: 30px;
+	&:focus{
+		outline: none;
+	}
+	&:hover{
+		text-decoration: none;
+	}
+	&_primary{
+		background-color: $primary;
+		&:hover{
+
+		}
+		&:active{
+
+		}
+	}
+	&_secondary{
+		&:hover{
+
+		}
+		&:active{
+
+		}
+	}
+	&:disabled,
+	&[disabled]{
+		color: white !important;
+		border-color: #d7d7d7 !important;
+		background-color: #d7d7d7 !important;
+		box-shadow: none;
+	}
+
+}
+
+/*Burger styling*/
+.burger {
+	display: none;
+	position: relative;
+	margin-left: auto;
+	width: 50px;
+	height: 50px;
+	align-items: center;
+	transition-duration: 0.5s;
+}
+
+
+@media only screen and (max-width: 991px){
+	.burger {
+		display: flex;
+		.icon {
+			transition-duration: 0.5s;
+			position: absolute;
+			height: 3px;
+			width: 36px;
+			background-color: #fff;
+		}
+		.icon:before {
+			transition-duration: 0.5s;
+			position: absolute;
+			width: 36px;
+			height: 3px;
+			background-color: #fff;
+			content: "";
+			top: -12px;
+		}
+		.icon:after {
+			transition-duration: 0.5s;
+			position: absolute;
+			width: 36px;
+			height: 3px;
+			background-color: #fff;
+			content: "";
+			top: 12px;
+		}
+		&.open{
+			.icon {
+				background-color: transparent;
+				transition-duration: 0.5s;
+				&:before {
+					background-color: $background-dark;
+					transform: rotateZ(45deg) scaleX(1.25) translate(4px, 12px);
+				}
+				&:after {
+					background-color: $background-dark;
+					transform: rotateZ(-45deg) scaleX(1.25) translate(4px, -12px);
+				}
+			}
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+}
+
+/*Burger styling ends*/
+
+/*
+ * Buttons styling ends
+ */
+
+/*
+ * Inputs styling
+ */
+
+	
+
+/*
+ * Inputs styling ends
+ */

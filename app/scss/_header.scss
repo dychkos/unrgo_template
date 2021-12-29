@@ -1,4 +1,82 @@
-.header
+.header{
+	color: $white;
+	margin-top: 30px;
+	height: 60px;
+	&-mobile{
+		display: none;
+		.header__row{
+			z-index: 5;
+		}
+		&__wrapper{
+			z-index: -1;
+			background-color: $background-light;
+			color: black;
+			position: absolute;
+			left: -1000px;
+			bottom: 0;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			transition: left 0.25s ease-in-out;
+			&.active{
+				left: 0;
+			}
+		}
+		&__items{
+			margin: 0 auto;
+			max-width: 340px;
+			max-height: 400px;
+			overflow-y: auto;
+		}
+		&__link{
+			text-align: center;
+			text-transform: uppercase;
+			font-family: Rubik-Bold;
+			font-size: 36px;
+			line-height: 80px;
+			a{
+				color: $black;
+			}
+			&:last-child{
+				padding-top: 20px;
+				border-top: 2px solid $black;
+				a{
+					color: $primary;
+				}
+			}
+
+		}
+		&__social{
+			margin: 0 auto;
+			position: absolute;
+			width: 320px;
+			bottom: 0;
+			left: 50%;
+			margin-left: -160px;
+		}
+		&__body{
+			position: relative;
+		}
+	}
+	&__row{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 40px;
+	}
+	&__col{
+		display: flex;
+		align-items: center;
+	}
+	&__items{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
 
 @media only screen and (max-width: 1199px){
 	.header{
@@ -8,6 +86,16 @@
 
 @media only screen and (max-width: 991px){
 	.header{
+		margin: 10px 0;
+		&-desktop{
+			display: none;
+		}
+		&-mobile{
+			display: block;
+
+		}
+
+
 
 	}
 }
