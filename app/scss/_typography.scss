@@ -1,0 +1,169 @@
+/*
+ * Typography stylesheet
+ */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{
+	color: $blue;
+	margin: 0;
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5{
+	text-transform: uppercase;
+
+}
+
+/* H1 Desk */
+h1, .h1{
+	font-size: 56px;
+	line-height: 75px;
+	letter-spacing: 0.15em;
+}
+
+/* H2 Desk */
+h2, .h2{
+	font-size: 33px;
+	line-height: 50px;
+	letter-spacing: 0.51em;
+}
+
+/* H3 Desk */
+h3, .h3{
+	font-size: 32px;
+	line-height: 39px;
+	letter-spacing: 0.375em;
+}
+
+/* H4 Desk */
+h4, .h4{
+	font-size: 31px;
+	line-height: 45px;
+	letter-spacing: 0.2em;
+}
+
+/* H5 Desk */
+h5, .h5{
+	font-size: 24px;
+	line-height: 50px;
+	letter-spacing: 0.2em;
+}
+
+
+/* H6 Desk */
+h6, .h6{
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.05em;
+}
+
+
+@media only screen and (max-width: 1199px){
+  /* H1 Small Desk */
+  h1, .h1{
+    font-size: 32px;
+    line-height: 46px;
+    letter-spacing: 0.175em;
+  }
+
+  /* H2 Small Desk */
+  h2, .h2{
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0.4em;
+  }
+
+
+  /* H3 and H5 Small Desk */
+  h3, .h3,
+  h5, h5{
+    font-size: 26px;
+    line-height: 38px;
+    letter-spacing: 0.225em;
+
+  }
+
+  /* H4 Small Desk */
+  h4, .h4{
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0.1em;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 991px){
+  /* H1 Tablet */
+  h1, .h1{
+    font-size: 28px;
+    line-height: 42px;
+    letter-spacing: 0.2em;
+
+  }
+
+  /* H2 Tablet */
+  h2, .h2{
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: 0.3em;
+  }
+
+
+          /* H3 and H5 Tablet */
+  h3, .h3,
+  h5, h5{
+    font-size: 20px;
+    line-height: 34px;
+    letter-spacing: 0.175em;
+
+  }
+
+          /* H4 Tablet */
+  h4, .h4{
+    font-size: 26px;
+    line-height: 36px;
+    letter-spacing: 0.15em;
+  }
+
+
+}
+
+@media only screen and (max-width: 767px){
+  /* H1 Mobile */
+  h1, .h1{
+    font-size: 24px;
+    line-height: 40px;
+    letter-spacing: 0.24em;
+  }
+
+
+  /* H2 Mobile */
+  h2, .h2{
+    font-size: 23px;
+    line-height: 39px;
+    letter-spacing: 0.2em;
+  }
+
+
+  /* H3 and H5 Mobile */
+  h3, .h3,
+  h5, h5{
+    font-size: 16px;
+    line-height: 31px;
+    letter-spacing: 0.15em;
+  }
+
+
+          /* H4 Mobile */
+  h4, .h4{
+    font-size: 23px;
+    line-height: 39px;
+    letter-spacing: 0.2em;
+  }
+
+}
