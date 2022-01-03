@@ -58,9 +58,14 @@ userDropdown.addEventListener("click",()=>{
 	userDropdown.classList.toggle("open");
 })
 
-
-
-
+var swiper = new Swiper(".swiper", {
+	slidesPerView: 3,
+	spaceBetween: 30,
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true,
+	},
+});
 
 // $('.search').click(()=>{
 // 	let isOpen = $(this).hasClass("open");
