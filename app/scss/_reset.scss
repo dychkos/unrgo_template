@@ -9,6 +9,7 @@
 html, body{
 	margin: 0;
 	padding: 0;
+	height: 100%;
 	overflow-x: hidden;
 }
 
@@ -20,6 +21,7 @@ ul, li{
 
 a, a:hover, a:visited{
 	text-decoration: none;
+	color: inherit;
 }
 
 button, input, optgroup, select, textarea{
@@ -51,4 +53,11 @@ button, [type="button"], [type="reset"], [type="submit"]{
 	border: none;
 	background: none;
 	cursor: pointer;
+}
+
+
+@media only screen and (max-width: 576px){
+	.container{
+		max-width: unset;
+	}
 }

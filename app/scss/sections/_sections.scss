@@ -1,1 +1,16 @@
 @import "example";
+@import "home";
+
+
+.content{
+  margin-top: 60px;
+  color: white;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .content {
+    margin-top: 20px;
+
+  }
+}
