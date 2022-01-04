@@ -1,3 +1,5 @@
+
+//COMMON ELEMS STYLING
 body{
 	background-color: $background-dark;
 	font-family: Rubik-Regular;
@@ -14,12 +16,28 @@ a.link{
 	}
 }
 
-
-
 .hide{
 	display: none;
 }
 
+.with-icon{
+	color: $primary;
+	display: flex;
+	align-items: center;
+	&__icon{
+		margin-right: 7px;
+		svg{
+			path{
+				stroke: $primary;
+			}
+		}
+	}
+
+}
+//COMMON ELEMS STYLING ENDs
+
+
+//LOGO STYLING
 .logo{
 	display: flex;
 	align-items: center;
@@ -35,7 +53,9 @@ a.link{
 		}
 	}
 }
+//LOGO STYLING ENDS
 
+//SEARCH STYLING
 .search{
 	padding: 0;
 	z-index: 4;
@@ -107,7 +127,7 @@ a.link{
 		top: 65px;
 		left: 0;
 		width: 100%;
-		box-shadow:3px 3px 20px  rgba(34, 60, 80, 0.14);;
+		box-shadow: 4px 4px 8px 8px rgba(34, 60, 80, 0.2);
 	}
 	&__title{
 		color: $primary;
@@ -133,7 +153,9 @@ a.link{
 
 
 }
+//SEARCH STYLING ENDS
 
+//USER-DROPDOWN STYLING
 .user-dropdown{
 	background-color: #fff;
 	color: $black;
@@ -148,6 +170,7 @@ a.link{
 	&__preview{
 		display: flex;
 		align-items: center;
+		padding: 0 10px;
 	}
 	&__image{
 		margin-left: 5px;
@@ -163,7 +186,9 @@ a.link{
 		}
 	}
 }
+//USER-DROPDOWN ENDs
 
+//ARTICLES STYLING
 .large-article{
 	position: relative;
 	padding: 25px;
@@ -232,7 +257,9 @@ a.link{
 		transform:scale(1.02);
 	}
 }
+//ARTICLES STYLING ENDs
 
+//TAG STYLING
 .tag{
 	background-color: $primary;
 	color: white;
@@ -240,22 +267,9 @@ a.link{
 	padding: 4px 12px;
 	text-transform: uppercase;
 }
+//TAG STYLING ENDS
 
-.with-icon{
-	color: $primary;
-	display: flex;
-	align-items: center;
-	&__icon{
-		margin-right: 7px;
-		svg{
-			path{
-				stroke: $primary;
-			}
-		}
-	}
-
-}
-
+//LOADER STYLING
 .loader{
 	margin: 0 auto;
 	svg{
@@ -265,15 +279,73 @@ a.link{
 			stroke: $primary;
 		}
 	}
-
 }
+//LOADER STYLING ENDS
 
+//SOCIAL STYLING
 .social{
 	&__item{
 		text-align: center;
 	}
 }
+//SOCIAL STYLING ENDS
 
+//BACKGROUND STYLING
+.floating {
+	animation-name:floating;
+	-webkit-animation-name:floating;
+	animation-duration:5s;
+	-webkit-animation-duration:5s;
+	animation-iteration-count:infinite;
+	-webkit-animation-iteration-count:infinite;
+}
+
+@keyframes floating{0%{transform:translateY(0%) rotate(-55deg);}
+	50%{transform:translateY(300%) rotate(55deg);}
+	100%{transform:translateY(0%) rotate(-55deg);}
+}
+@-webkit-keyframes floating{0%{-webkit-transform:translateY(0%);}
+	50%{-webkit-transform:translateY(300%);}
+	100%{-webkit-transform:translateY(0%);}
+}
+@-webkit-keyframes floating{0%{-webkit-transform:translateY(0%);}
+	50%{-webkit-transform:translateY(300%);}
+	100%{-webkit-transform:translateY(0%);}
+}
+
+.back-shapes {
+	width:100%;
+	height:100%;
+	position:relative;
+	overflow:hidden;
+}
+
+.back-shapes img {
+	opacity:0.1;
+	position:absolute;
+	width:2%;
+}
+
+.back-shapes em {
+	opacity:0.2;
+	position:absolute;
+	width:2%;
+	font-size:240%!important;
+	color:#fff;
+}
+
+.backwrap {
+	/* background: #191a29;  */
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	width:100%;
+	height:100%;
+	position:fixed;
+	left:0;
+	top:0;
+	z-index:-33;
+}
+//BACKGROUND STYLING ENDS
 
 .like{
 	background-color: $primary;
@@ -316,6 +388,7 @@ a.link{
 	max-width: 250px;
 	border-radius: 25px;
 	overflow: hidden;
+	transition: transform 0.3s ease;
 	&__wrapper{
 		padding: 20px;
 		background-color: $background-light;
@@ -345,7 +418,10 @@ a.link{
 	}
 	&__like{
 		position: absolute;
-		right: 20px;
+		right: 10px;
+	}
+	&:hover{
+		transform:rotateX(3deg) rotateY(7deg);
 	}
 }
 
@@ -406,20 +482,125 @@ a.link{
 
 }
 
+/*BURGER STYLING*/
 .burger {
 	display: none;
 	position: relative;
 	margin-left: auto;
+	z-index: 5;
 	width: 50px;
 	height: 50px;
 	align-items: center;
 	transition-duration: 0.5s;
 
 }
+/*BURGER STYLING ends*/
 
 
-/*Burger styling ends*/
+//SWIPER STYLING
+.slider{
+	position: relative;
+	width: 100%;
+}
 
+.swiper {
+	width: 95%;
+	height: 100%;
+	&-button-disabled{
+		display:none;
+	}
+	&-slide {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		margin: 0;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+	}
+
+	&-slide img {
+		display: block;
+		width: 100px;
+		margin: 0 auto;
+		height: 120px;
+		object-fit: cover;
+	}
+
+	&-button-next, &-button-prev {
+		svg{
+			height: 36px;
+			width: 55px;
+		}
+		&:after{
+			display: none;
+		}
+	}
+
+	&-button-next{
+		right: -10px;
+	}
+
+
+	&-button-prev{
+		left: -10px;
+	}
+
+	&-button-prev{
+		transform: rotate(180deg);
+	}
+
+}
+//SWIPER STYLING ENDS
+
+.up{
+	position: fixed;
+	opacity: 0;
+	height: 50px;
+	width: 50px;
+	background-color: $primary;
+	border-radius: 50%;
+	bottom: 80px;
+	right: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: $upZ;
+	transition: all 0.3s ease;
+	transition-property: box-shadow,opacity;
+	svg{
+		path{
+			fill: #fff;
+		}
+	}
+	&:hover{
+		box-shadow: 2px 1px 14px 0px $primary;
+	}
+	&.active{
+		opacity: 1;
+	}
+}
+
+#top{
+	visibility: hidden;
+	opacity: 0;
+	position: relative;
+	top: -213px;
+}
+
+@media only screen and (max-width: 1199px){
+	.swiper {
+		width: 92%;
+	}
+
+}
 
 @media only screen and (max-width: 991px){
 	.burger {
@@ -455,10 +636,12 @@ a.link{
 				transition-duration: 0.5s;
 				&:before {
 					background-color: $background-dark;
+					width: 30px;
 					transform: rotateZ(45deg) scaleX(1.25) translate(4px, 12px);
 				}
 				&:after {
 					background-color: $background-dark;
+					width: 30px;
 					transform: rotateZ(-45deg) scaleX(1.25) translate(4px, -12px);
 				}
 			}
@@ -471,10 +654,10 @@ a.link{
 		&.open{
 			position: absolute;
 			width: 100%;
-			height: 80px;
+			height: 60px;
 			top: 0;
 			left: 0;
-			border-radius: 0;
+			border-radius: 30px;
 		}
 	}
 	.logo{
@@ -498,5 +681,23 @@ a.link{
 			max-width: 100%;
 		}
 	}
+
+	.swiper{
+		&-button-next{
+			right: -12px;
+		}
+
+		&-button-prev{
+			left: -12px;
+		}
+	}
+	.up{
+		bottom: 30px;
+		right: 20px;
+		&:hover{
+			box-shadow: none;
+		}
+	}
+
 
 }
