@@ -1,11 +1,12 @@
 @import "example";
 @import "home";
+@import "articles";
 
 
 .content{
   margin-top: 60px;
   color: white;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 

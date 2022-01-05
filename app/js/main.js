@@ -11,81 +11,11 @@ let searchInput = search.querySelector('.search__input');
 let searchResults = search.querySelector('.search__results');
 let userDropdown = document.querySelector('.user-dropdown');
 let up = document.querySelector('.up');
+let sort = document.querySelector('.sort');
+let navigation = document.querySelector('.navigation__active');
 
-//Listeners
-btnBurger.addEventListener('click',function (e){
-	toggleMobileMenu(btnBurger);
-})
-
-function syncHeight() {
-	document.documentElement.style.setProperty(
-		"--window-inner-height",
-		`${window.innerHeight}px`
-	);
-}
-
-window.addEventListener("resize", syncHeight);
-
-window.onscroll = () =>{
-	console.log(window.scrollY)
-	if(window.scrollY > 60){
-		up.classList.add("active");
-	}else {
-		up.classList.remove("active");
-	}
-}
-
-search.addEventListener('click',()=>{
-	// let isOpen = search.classList.contains('open');
-	// console.log('here')
-	// // if(isOpen){
-	// // 	if(isMobile) return;
-	// // 	search.classList.remove('open');
-	// // 	btnBurger.classList.remove('open');
-	// // 	btnBurger.setAttribute('action','');
-	// // 	document.removeEventListener('mouseup',searchHide);
-	// // 	searchWrapper.style.width = '60px';
-	// // 	return;
-	// // }
-	search.classList.add('open');
-	btnBurger.classList.add('open');
-	btnBurger.setAttribute('action','search');
-	if(isMobile) return;
-	searchWrapper.style.width = '320px';
-	document.addEventListener('mouseup',searchHide);
-});
-
-searchInput.addEventListener('input',(event)=>{
-	if(event.target.value.length > 2){
-		searchResults.style.display = "block";
-		searchResults.innerHTML =
-			` <div class="search__row">
-             	<div class="search__title h4">Статьи</div>
-                  <p class="search__link h5"><a href="#">Рандомный текст</a></p>
-                  <p class="search__link h5"><a href="#">Типо текст</a></p>
-              </div>
-              <div class="search__row">
-                <div class="search__title h4">Товары</div>
-                  <p class="search__link h5"><a href="#">Найдено туть</a></p>
-                  <p class="search__link h5"><a href="#">эовы туть</a></p>
-              </div>`
-	}else{
-		searchResults.style.display = "none";
-	}
-})
-
-userDropdown.addEventListener("click",()=>{
-	userDropdown.classList.toggle("open");
-	if(userDropdown.classList.contains("open")){
-		document.addEventListener('mouseup',userDropdownHide);
-
-	}else{
-		document.removeEventListener('mouseup',userDropdownHide);
-
-	}
-})
-
-let swiper = new Swiper(".swiper", {
+//Declaration
+new Swiper(".swiper", {
 	slidesPerView: 1,
 	spaceBetween: 10,
 	direction:"horizontal",
@@ -114,6 +44,105 @@ let swiper = new Swiper(".swiper", {
 
 });
 
+//Listeners
+
+
+btnBurger.addEventListener('click',function (e){
+	toggleMobileMenu(btnBurger);
+})
+
+window.onscroll = () =>{
+	if(window.scrollY > 60){
+		up.classList.add("active");
+	}else {
+		up.classList.remove("active");
+	}
+}
+
+sort.addEventListener('click',()=>{
+	let sortBody = sort.querySelector('.sort__body');
+
+	let hider = new Hider(".sort", ()=>{
+		$(".sort__body").removeClass("active");
+	});
+
+	if(sortBody.classList.contains("active")){
+		sortBody.classList.remove("active");
+		document.removeEventListener('click',hider.hide);
+	}else{
+		sortBody.classList.add("active");
+		document.addEventListener('click',hider.hide);
+	}
+
+})
+
+navigation.addEventListener("click",()=>{
+	let navBody = document.querySelector(".navigation__body");
+
+	let hider = new Hider(".navigation__active",()=>{
+		$(".navigation__body").removeClass("active");
+	});
+
+	if(navBody.classList.contains("active")){
+		navBody.classList.remove("active");
+		document.removeEventListener('mouseup',hider.hide);
+	}else{
+		navBody.classList.add("active");
+		document.addEventListener('mouseup',hider.hide);
+	}
+})
+
+search.addEventListener('click',()=>{
+	search.classList.add('open');
+	btnBurger.classList.add('open');
+	btnBurger.setAttribute('action','search');
+	if(isMobile) return;
+	searchWrapper.style.width = '320px';
+
+	let hider = new Hider("search__wrapper",()=>{
+		$(".search").removeClass("open");
+		$(".burger").removeClass("open").attr("action","");
+		$(".search__wrapper").css("width","60px");
+		$(".search__results").hide();
+	})
+
+	document.addEventListener('mouseup',hider.hide);
+});
+
+searchInput.addEventListener('input',(event)=>{
+	if(event.target.value.length > 2){
+		searchResults.style.display = "block";
+		searchResults.innerHTML =
+			` <div class="search__row">
+             	<div class="search__title h4">Статьи</div>
+                  <p class="search__link h5"><a href="#">Рандомный текст</a></p>
+                  <p class="search__link h5"><a href="#">Типо текст</a></p>
+              </div>
+              <div class="search__row">
+                <div class="search__title h4">Товары</div>
+                  <p class="search__link h5"><a href="#">Найдено туть</a></p>
+                  <p class="search__link h5"><a href="#">эовы туть</a></p>
+              </div>`
+	}else{
+		searchResults.style.display = "none";
+	}
+})
+
+userDropdown.addEventListener("click",()=>{
+	userDropdown.classList.toggle("open");
+
+	let hider = new Hider(".user-dropdown",()=>{
+		$(".user-dropdown").removeClass("open");
+	});
+
+	if(userDropdown.classList.contains("open")){
+		document.addEventListener('mouseup',hider.hide);
+	}else{
+		document.removeEventListener('mouseup',hider.hide);
+	}
+})
+
+//Additional
 function toggleMobileMenu(burger){
 	let action = $(burger).attr("action");
 	if(action==="search"){
@@ -138,27 +167,26 @@ function toggleMobileMenu(burger){
 
 }
 
-function searchHide (e) {
-	hideByDocumentClick(e,".search__wrapper",()=>{
-		$(".search").removeClass("open");
-		$(".burger").removeClass("open").attr("action","");
-		$(".search__wrapper").css("width","60px");
-		$(".search__results").hide();
-	})
-}
 
-function userDropdownHide (e) {
-	hideByDocumentClick(e,".user-dropdown",()=>{
-		$(".user-dropdown").removeClass("open");
-	})
-}
+//CLASSES
 
-function hideByDocumentClick(e,element,action){
-	let div = $(element);
-	if (!div.is(e.target) // если клик был не по нашему блоку
-		&& div.has(e.target).length === 0) { // и не по его дочерним элементам
-		action();
+/*
+* Provide ability to do ACTION when click outside ELEMENT
+* */
+class Hider {
+	constructor(element,action) {
+		this.element = element;
+		this.action = action;
+
+	}
+
+
+	hide=(event)=>{
+		let div = $(this.element);
+		if (!div.is(event.target) // если клик был не по нашему блоку
+			&& div.has(event.target).length === 0) { // и не по его дочерним элементам
+			this.action();
+		}
 	}
 }
-
 
