@@ -155,6 +155,90 @@ a.link{
 }
 //SEARCH STYLING ENDS
 
+.ellipse{
+	padding-left:10px;
+	position: relative;
+	&:before{
+		content: "";
+		display: block;
+		border-radius: 50%;
+		position: absolute;
+		top:50%;
+		left: -5px;
+		height: 4px;
+		width: 4px;
+		background-color: $primary;
+	}
+}
+
+.sidebar{
+	background-color: $background-light;
+	padding: 25px;
+	color: $black;
+	border-radius: $b-radius;
+	&__title{
+		text-align: center;
+		margin:16px 0;
+		padding-bottom: 14px;
+	}
+	.product{
+		margin: 0 auto 16px;
+		padding: 0;
+		border: 2px solid $primary;
+		width: 100%;
+	}
+}
+
+.blog-nav{
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+	border-bottom: 2px solid $primary;
+	&__category{
+		&.open{
+			.blog-nav__sub-categories{
+				max-height: 220px;
+			}
+			.blog-nav__main{
+				svg{
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+	&__main{
+		cursor: pointer;
+		margin-top: 12px;
+		&:last-child{
+			margin-top: 0;
+		}
+		svg{
+			transform: rotate(90deg);
+			transition: transform 1s ease;
+			path{
+				fill: $primary;
+			}
+		}
+	}
+	&__sub-categories{
+		margin-top: 8px;
+		margin-left: 30px;
+		overflow: auto;
+		max-height: 0;
+		transition: max-height 1s ease;
+	}
+	&__sub{
+		margin: 20px 6px;
+		cursor: pointer;
+		&:hover{
+			text-decoration: underline;
+		}
+		&.chosen{
+			color: $primary;
+		}
+	}
+
+}
+
 //USER-DROPDOWN STYLING
 .user-dropdown{
 	background-color: #fff;
@@ -262,6 +346,7 @@ a.link{
 //TAG STYLING
 .tag{
 	background-color: $primary;
+	text-align: center;
 	color: white;
 	letter-spacing: 0.3em;
 	padding: 4px 12px;
@@ -527,6 +612,29 @@ a.link{
 }
 
 
+
+.required{
+	border: 2px solid $danger;
+	color: $danger;
+	&_alert{
+		color: $danger;
+	}
+}
+
+input,textarea{
+	width: 100%;
+	margin-bottom: 8px;
+	padding: 16px 24px;
+	color: $gray;
+	background-color: $secondary;
+	border: none;
+	border-radius: $b-radius;
+}
+textarea{
+	resize: vertical;
+}
+
+
 .btn{
 	display: inline-block;
 	line-height: 1;
@@ -534,14 +642,16 @@ a.link{
 	min-width: min-content;
 	white-space: nowrap;
 	transition: all .25s ease-in-out;
-	padding: 12px 30px;
-	border-radius: 30px;
+	text-align: center;
+	padding: 16px 45px;
+	border-radius: $b-radius;
+	color: #fff;
 	&:focus{
 		outline: none;
 	}
 	&:hover{
 		text-decoration: none;
-		box-shadow: 2px 1px 14px 0px $primary;
+		background-color: $hover;
 	}
 	&_primary{
 		background-color: $primary;
@@ -687,6 +797,12 @@ a.link{
 	.swiper {
 		width: 92%;
 	}
+	.blog-nav{
+		&__sub-categories{
+			margin-left: 5px;
+		}
+	}
+
 
 }
 
@@ -738,6 +854,14 @@ a.link{
 			cursor: pointer;
 		}
 	}
+
+	.blog-nav{
+		&__sub-categories{
+			margin-left: 15px;
+		}
+	}
+
+
 	.search {
 		&.open{
 			position: absolute;
@@ -754,9 +878,11 @@ a.link{
 			margin: 0 auto;
 		}
 	}
+
 	.article{
 		max-width: 100%;
 	}
+
 	.navigation{
 		&__categories{
 			position: relative;

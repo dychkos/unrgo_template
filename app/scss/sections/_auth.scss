@@ -1,0 +1,46 @@
+/*
+ * Example section styling
+ */
+
+.auth{
+	background-color: #fff;
+	padding: 40px;
+	color: $black;
+	border-radius: $b-radius;
+	&__body{
+
+	}
+	&__title{
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
+}
+
+@media only screen and (max-width: 1199px){
+	.example{
+
+	}
+
+}
+
+
+@media only screen and (max-width: 991px){
+	.example{
+
+	}
+}
+
+	
+@media only screen and (max-width: 767px){
+	.example{
+
+	}
+}
+
+
+@media only screen and (max-width: 575px){
+	.example{
+
+	}
+}

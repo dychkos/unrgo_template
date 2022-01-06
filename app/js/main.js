@@ -13,6 +13,7 @@ let userDropdown = document.querySelector('.user-dropdown');
 let up = document.querySelector('.up');
 let sort = document.querySelector('.sort');
 let navigation = document.querySelector('.navigation__active');
+let blogNav = document.querySelectorAll('.blog-nav__category');
 
 //Declaration
 new Swiper(".swiper", {
@@ -46,6 +47,11 @@ new Swiper(".swiper", {
 
 //Listeners
 
+window.addEventListener("load",()=>{
+	let chosenNav = document.querySelector(".chosen");
+	$([chosenNav.parentElement]).animate({ scrollTop: ($(".chosen").offset().top - 400)}, 500);
+	chosenNav.parentElement.parentElement.classList.add("open");
+})
 
 btnBurger.addEventListener('click',function (e){
 	toggleMobileMenu(btnBurger);
@@ -58,6 +64,13 @@ window.onscroll = () =>{
 		up.classList.remove("active");
 	}
 }
+
+blogNav.forEach(nav=>{
+	nav.addEventListener("click",()=>{
+		hideSidebarNav();
+		nav.classList.toggle("open");
+	})
+})
 
 sort.addEventListener('click',()=>{
 	let sortBody = sort.querySelector('.sort__body');
@@ -165,6 +178,14 @@ function toggleMobileMenu(burger){
 	$('.header-mobile__wrapper').addClass("active");
 	$('.search_white').hide();
 
+}
+
+function hideSidebarNav(){
+	blogNav.forEach(nav=>{
+		if(nav.classList.contains("open")){
+			nav.classList.remove("open");
+		}
+	})
 }
 
 
