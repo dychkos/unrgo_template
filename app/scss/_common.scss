@@ -43,14 +43,27 @@ a.link{
 	align-items: center;
 	align-self: flex-start;
 	&__image{
-		height: 60px;
-		width: 60px;
-		margin-right: 8px;
-		img{
+		width: 42px;
+		margin-right: 12px;
+		transition: all 0.4 ease;
+		svg{
 			height: 100%;
 			width: 100%;
 			object-fit: cover;
+			path{
+				fill: #fff;
+			}
 		}
+	}
+	&.invert{
+		svg{
+			path{
+				fill: #191a29;
+			}
+		}
+	}
+	&__text{
+		text-transform: uppercase;
 	}
 }
 //LOGO STYLING ENDS

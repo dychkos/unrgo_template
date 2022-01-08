@@ -9,6 +9,7 @@ let search = isMobile
 let searchWrapper = document.querySelector('.search__wrapper');
 let searchInput = search.querySelector('.search__input');
 let searchResults = search.querySelector('.search__results');
+let logo = document.querySelector(".header-mobile__col .logo");
 let userDropdown = document.querySelector('.user-dropdown');
 let up = document.querySelector('.up');
 let sort = document.querySelector('.sort');
@@ -169,12 +170,14 @@ function toggleMobileMenu(burger){
 	if(isOpen){
 		$(burger).removeClass("open");
 		$('.header-mobile__wrapper').removeClass("active");
+		$('.header-mobile__col .logo').removeClass("invert");
 		document.body.style.overflow = "auto";
 		$('.search_white').show();
 		return;
 	}
 	document.body.style.overflow = "hidden";
 	$(burger).addClass("open");
+	$('.header-mobile__col .logo').addClass("invert");
 	$('.header-mobile__wrapper').addClass("active");
 	$('.search_white').hide();
 
