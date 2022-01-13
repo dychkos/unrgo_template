@@ -634,7 +634,7 @@ a.link{
 	}
 }
 
-input,textarea{
+input:not(input[type="checkbox"],input[type="radio"]),textarea{
 	width: 100%;
 	margin-bottom: 8px;
 	padding: 16px 24px;
@@ -643,6 +643,11 @@ input,textarea{
 	border: none;
 	border-radius: $b-radius;
 }
+
+input[type="checkbox"]{
+	display: block;
+}
+
 textarea{
 	resize: vertical;
 }
