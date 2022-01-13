@@ -1,7 +1,7 @@
 //Global variables
 const isMobile = getComputedStyle(document.querySelector('.header-mobile')).display === 'block';
 
-//Nodes
+//Common Nodes
 let btnBurger = document.querySelector('.burger');
 let search = isMobile
 	? document.querySelector('.search[data-mobile]')
@@ -9,12 +9,13 @@ let search = isMobile
 let searchWrapper = document.querySelector('.search__wrapper');
 let searchInput = search.querySelector('.search__input');
 let searchResults = search.querySelector('.search__results');
+let logo = document.querySelector(".header-mobile__col .logo");
 let userDropdown = document.querySelector('.user-dropdown');
 let up = document.querySelector('.up');
-let sort = document.querySelector('.sort');
-let navigation = document.querySelector('.navigation__active');
+let blogNav = document.querySelectorAll('.blog-nav__category');
 
-//Declaration
+
+//Declarations
 new Swiper(".swiper", {
 	slidesPerView: 1,
 	spaceBetween: 10,
@@ -46,7 +47,6 @@ new Swiper(".swiper", {
 
 //Listeners
 
-
 btnBurger.addEventListener('click',function (e){
 	toggleMobileMenu(btnBurger);
 })
@@ -59,37 +59,11 @@ window.onscroll = () =>{
 	}
 }
 
-sort.addEventListener('click',()=>{
-	let sortBody = sort.querySelector('.sort__body');
-
-	let hider = new Hider(".sort", ()=>{
-		$(".sort__body").removeClass("active");
-	});
-
-	if(sortBody.classList.contains("active")){
-		sortBody.classList.remove("active");
-		document.removeEventListener('click',hider.hide);
-	}else{
-		sortBody.classList.add("active");
-		document.addEventListener('click',hider.hide);
-	}
-
-})
-
-navigation.addEventListener("click",()=>{
-	let navBody = document.querySelector(".navigation__body");
-
-	let hider = new Hider(".navigation__active",()=>{
-		$(".navigation__body").removeClass("active");
-	});
-
-	if(navBody.classList.contains("active")){
-		navBody.classList.remove("active");
-		document.removeEventListener('mouseup',hider.hide);
-	}else{
-		navBody.classList.add("active");
-		document.addEventListener('mouseup',hider.hide);
-	}
+blogNav.forEach(nav=>{
+	nav.addEventListener("click",()=>{
+		hideSidebarNav();
+		nav.classList.toggle("open");
+	})
 })
 
 search.addEventListener('click',()=>{
@@ -156,37 +130,25 @@ function toggleMobileMenu(burger){
 	if(isOpen){
 		$(burger).removeClass("open");
 		$('.header-mobile__wrapper').removeClass("active");
+		$('.header-mobile__col .logo').removeClass("invert");
 		document.body.style.overflow = "auto";
 		$('.search_white').show();
 		return;
 	}
 	document.body.style.overflow = "hidden";
 	$(burger).addClass("open");
+	$('.header-mobile__col .logo').addClass("invert");
 	$('.header-mobile__wrapper').addClass("active");
 	$('.search_white').hide();
 
 }
 
-
-//CLASSES
-
-/*
-* Provide ability to do ACTION when click outside ELEMENT
-* */
-class Hider {
-	constructor(element,action) {
-		this.element = element;
-		this.action = action;
-
-	}
-
-
-	hide=(event)=>{
-		let div = $(this.element);
-		if (!div.is(event.target) // если клик был не по нашему блоку
-			&& div.has(event.target).length === 0) { // и не по его дочерним элементам
-			this.action();
+function hideSidebarNav(){
+	blogNav.forEach(nav=>{
+		if(nav.classList.contains("open")){
+			nav.classList.remove("open");
 		}
-	}
+	})
 }
+
 

@@ -9,7 +9,13 @@ const
 	rename = require('gulp-rename'),
 	cssnano = require('gulp-cssnano'),
 	cleanCSS = require('gulp-clean-css'),
-	notify = require("gulp-notify");
+	notify = require("gulp-notify"),
+ 	posthtml = require('gulp-posthtml'),
+	include = require('posthtml-include');
+
+const richtypo = require('posthtml-richtypo');
+const expressions = require('posthtml-expressions');
+const removeAttributes = require('posthtml-remove-attributes');
 
 function browserSync(done) {
 	browsersync.init({
@@ -55,6 +61,7 @@ function compileSass(done) {
   
 	done();
 }
+
 
 
 function watchFiles(done) {
@@ -108,9 +115,28 @@ function moveJSToDist(done) {
 	done();
 }
 
+function prepareHTML(done){
+	return gulp.src(['app/*.html'])
+		.pipe(fileinclude({
+			prefix: '@@',
+			basepath: '@file'
+		}))
+		.pipe(gulp.dest('./'));
+
+	done();
+}
+
+function htmlProcess(done) {
+	return gulp.src('src/*.html')
+		.pipe(posthtml([include()]))
+		.pipe(gulp.dest('dist'))
+
+	done();
+}
+
 gulp.task('build',  
 	gulp.series(
-		removeDist,compileSass, compileCSSlibs, compileScripts,
+		removeDist,compileSass, compileCSSlibs, compileScripts,htmlProcess,
 		moveFontsToDist, moveImgToDist, moveHtmlToDist, moveCssToDist, moveJSToDist
 	), function(done) {
 		done();
@@ -118,7 +144,7 @@ gulp.task('build',
 );
 
 const taskBuild = gulp.series('build');
-const taskWatch = gulp.series(compileScripts, compileCSSlibs, watchFiles, browserSync);
+const taskWatch = gulp.series(compileScripts, htmlProcess, compileCSSlibs, watchFiles, browserSync);
 
 exports.build = taskBuild;
 exports.default = taskWatch;
