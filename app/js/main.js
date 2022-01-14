@@ -1,7 +1,7 @@
 //Global variables
 const isMobile = getComputedStyle(document.querySelector('.header-mobile')).display === 'block';
 
-//Nodes
+//Common Nodes
 let btnBurger = document.querySelector('.burger');
 let search = isMobile
 	? document.querySelector('.search[data-mobile]')
@@ -12,11 +12,10 @@ let searchResults = search.querySelector('.search__results');
 let logo = document.querySelector(".header-mobile__col .logo");
 let userDropdown = document.querySelector('.user-dropdown');
 let up = document.querySelector('.up');
-let sort = document.querySelector('.sort');
-let navigation = document.querySelector('.navigation__active');
 let blogNav = document.querySelectorAll('.blog-nav__category');
 
-//Declaration
+
+//Declarations
 new Swiper(".swiper", {
 	slidesPerView: 1,
 	spaceBetween: 10,
@@ -48,12 +47,6 @@ new Swiper(".swiper", {
 
 //Listeners
 
-window.addEventListener("load",()=>{
-	let chosenNav = document.querySelector(".chosen");
-	$([chosenNav.parentElement]).animate({ scrollTop: ($(".chosen").offset().top - 400)}, 500);
-	chosenNav.parentElement.parentElement.classList.add("open");
-})
-
 btnBurger.addEventListener('click',function (e){
 	toggleMobileMenu(btnBurger);
 })
@@ -71,39 +64,6 @@ blogNav.forEach(nav=>{
 		hideSidebarNav();
 		nav.classList.toggle("open");
 	})
-})
-
-sort.addEventListener('click',()=>{
-	let sortBody = sort.querySelector('.sort__body');
-
-	let hider = new Hider(".sort", ()=>{
-		$(".sort__body").removeClass("active");
-	});
-
-	if(sortBody.classList.contains("active")){
-		sortBody.classList.remove("active");
-		document.removeEventListener('click',hider.hide);
-	}else{
-		sortBody.classList.add("active");
-		document.addEventListener('click',hider.hide);
-	}
-
-})
-
-navigation.addEventListener("click",()=>{
-	let navBody = document.querySelector(".navigation__body");
-
-	let hider = new Hider(".navigation__active",()=>{
-		$(".navigation__body").removeClass("active");
-	});
-
-	if(navBody.classList.contains("active")){
-		navBody.classList.remove("active");
-		document.removeEventListener('mouseup',hider.hide);
-	}else{
-		navBody.classList.add("active");
-		document.addEventListener('mouseup',hider.hide);
-	}
 })
 
 search.addEventListener('click',()=>{
@@ -191,26 +151,4 @@ function hideSidebarNav(){
 	})
 }
 
-
-//CLASSES
-
-/*
-* Provide ability to do ACTION when click outside ELEMENT
-* */
-class Hider {
-	constructor(element,action) {
-		this.element = element;
-		this.action = action;
-
-	}
-
-
-	hide=(event)=>{
-		let div = $(this.element);
-		if (!div.is(event.target) // если клик был не по нашему блоку
-			&& div.has(event.target).length === 0) { // и не по его дочерним элементам
-			this.action();
-		}
-	}
-}
 
