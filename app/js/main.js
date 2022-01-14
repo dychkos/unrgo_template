@@ -15,15 +15,10 @@ let up = document.querySelector('.up');
 let blogNav = document.querySelectorAll('.blog-nav__category');
 
 
-//Declarations
-new Swiper(".swiper", {
+let sliderOptions  = {
 	slidesPerView: 1,
 	spaceBetween: 10,
 	direction:"horizontal",
-	navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev",
-	},
 	// Responsive breakpoints
 	breakpoints: {
 
@@ -42,8 +37,7 @@ new Swiper(".swiper", {
 			spaceBetween: 20
 		}
 	}
-
-});
+}
 
 //Listeners
 

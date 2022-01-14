@@ -1,8 +1,19 @@
 /*
 * Declaration
 * */
-new Swiper(".new-swiper", sliderOptions);
-new Swiper(".popular-swiper", sliderOptions);
+
+new Swiper(".new-swiper", {
+    ...sliderOptions,navigation: {
+        nextEl: "#swiper-button-next-1",
+        prevEl: "#swiper-button-prev-1",
+    }
+});
+new Swiper(".popular-swiper", {
+    ...sliderOptions,navigation: {
+        nextEl: "#swiper-button-next-2",
+        prevEl: "#swiper-button-prev-2",
+    }
+});
 
 /*
 * Nodes

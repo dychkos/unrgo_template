@@ -18,7 +18,8 @@ a.link{
 }
 
 .page-title{
-	margin-bottom: 16px;
+	padding-top: 20px;
+	padding-bottom: 30px;
 }
 
 .hide{
@@ -218,6 +219,12 @@ textarea{
 }
 
 //COMMON ELEMS STYLING ENDs
+@media only screen and (max-width: 991px){
+	.page-title{
+		padding-top: 10px;
+	}
+}
+
 
 @media only screen and (max-width: 575px){
 	.up{
