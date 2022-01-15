@@ -9,13 +9,7 @@ const
 	rename = require('gulp-rename'),
 	cssnano = require('gulp-cssnano'),
 	cleanCSS = require('gulp-clean-css'),
-	notify = require("gulp-notify"),
- 	posthtml = require('gulp-posthtml'),
-	include = require('posthtml-include');
-
-const richtypo = require('posthtml-richtypo');
-const expressions = require('posthtml-expressions');
-const removeAttributes = require('posthtml-remove-attributes');
+	notify = require("gulp-notify");
 
 function browserSync(done) {
 	browsersync.init({
@@ -136,7 +130,7 @@ function htmlProcess(done) {
 
 gulp.task('build',  
 	gulp.series(
-		removeDist,compileSass, compileCSSlibs, compileScripts,htmlProcess,
+		removeDist,compileSass, compileCSSlibs, compileScripts,
 		moveFontsToDist, moveImgToDist, moveHtmlToDist, moveCssToDist, moveJSToDist
 	), function(done) {
 		done();
@@ -144,7 +138,7 @@ gulp.task('build',
 );
 
 const taskBuild = gulp.series('build');
-const taskWatch = gulp.series(compileScripts, htmlProcess, compileCSSlibs, watchFiles, browserSync);
+const taskWatch = gulp.series(compileScripts, compileCSSlibs, watchFiles, browserSync);
 
 exports.build = taskBuild;
 exports.default = taskWatch;
