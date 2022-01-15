@@ -190,6 +190,9 @@ textarea{
 		text-decoration: none;
 		background-color: $hover;
 	}
+	&_small{
+		padding: 6px 18px;
+	}
 	&_primary{
 		background-color: $primary;
 		&:hover{
@@ -213,6 +216,28 @@ textarea{
 		border-color: #d7d7d7 !important;
 		background-color: #d7d7d7 !important;
 		box-shadow: none;
+	}
+
+}
+
+
+select,.select{
+	width: 100%;
+	margin-bottom: 8px;
+	padding: 16px 24px;
+	color: $gray;
+	background-color: $secondary;
+	border: none;
+	border-radius: $b-radius;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3csvg width='19' height='12' viewBox='0 0 19 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.75 2.25L9.5 9.75L17.25 2.25' stroke='%23A5A815' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+	background-repeat: no-repeat, repeat;
+	background-position: right .7em top 50%, 0 0;
+	background-size: .65em auto, 100%;
+	option{
+		margin-bottom: 14px;
 	}
 
 }
