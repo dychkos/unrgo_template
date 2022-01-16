@@ -1,15 +1,6 @@
 /*
- * Example section styling
+ * Basket section styling
  */
-
-.basket{
-	&__body{
-		padding: 40px;
-		background-color: $background-light;
-		border-radius: $b-radius;
-	}
-
-}
 
 .order{
 	display: flex;
@@ -37,6 +28,7 @@
 	&__actions{
 		display: flex;
 		align-items: center;
+		flex-basis: auto !important;
 	}
 	&__action{
 		width: 36px;
@@ -48,6 +40,29 @@
 			stroke: $primary;
 		}
 	}
+	&__remove{
+		max-width: 48px;
+		cursor: pointer;
+		svg{
+			width: 100%;
+			height: 100%;
+			g{
+				fill: $danger;
+				transition: fill 0.2s ease-in-out;
+
+			}
+		}
+		&:hover{
+			g{
+				fill: $hover;
+			}
+		}
+	}
+	&__title{
+		text-align: center;
+		max-width: 200px;
+	}
+
 	&__count{
 		border-radius: 50%;
 		width: 40px;
@@ -83,11 +98,17 @@
 		justify-content: space-between;
 		align-items: center;
 	}
+	&__submit{
+		margin-top: 24px;
+	}
 
 }
 
 @media only screen and (max-width: 1199px){
-	.example{
+	.order{
+		&__title{
+			display: none;
+		}
 
 	}
 
@@ -95,8 +116,33 @@
 
 
 @media only screen and (max-width: 991px){
-	.example{
+	.order{
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 30px;
+		&>div{
+			flex-basis: 100%;
 
+		}
+		&__title{
+			display: block;
+			max-width: 100%;
+		}
+		&__action{
+			margin-left: 10px;
+		}
+		&__price{
+			order: 1;
+			text-align: center;
+		}
+		&__image{
+			height: 130px;
+		}
+	}
+	.make-order{
+		&__submit{
+			width: 100%;
+		}
 	}
 }
 
@@ -109,7 +155,6 @@
 
 
 @media only screen and (max-width: 575px){
-	.example{
-
+	.order{
 	}
 }
