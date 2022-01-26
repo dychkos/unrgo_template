@@ -22,7 +22,6 @@ class Select {
         this.dropdownInput.addEventListener("input",this.onChange);
 
         this.render();
-
     }
 
     render(items = this.items){
@@ -31,7 +30,6 @@ class Select {
         })
         this.dropdownBody.innerHTML = html.join("");
         if(!this.isSelectedEmpty()){
-            console.log('fack')
             this.dropdownInput.value = this._selected.value;
         }
         this.initEvent();
