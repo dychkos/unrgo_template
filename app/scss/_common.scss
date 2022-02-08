@@ -273,6 +273,9 @@ select,.select{
 
 .form-input{
 	margin-bottom: 8px;
+	&_sm{
+		width: 320px;
+	}
 	.label{
 		float: left;
 		margin: 6px 0;
@@ -304,6 +307,11 @@ select,.select{
 		right: 20px;
 		&:hover{
 			box-shadow: none;
+		}
+	}
+	.form-input {
+		&_sm {
+			width: 100%
 		}
 	}
 }

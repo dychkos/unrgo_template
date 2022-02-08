@@ -1,0 +1,19 @@
+//QUICK NAv STYLING
+.quick-nav{
+  display: flex;
+  &__item{
+    padding-bottom: 6px;
+    border-bottom: 3px solid $black;
+    cursor: pointer;
+    padding-right: 10px;
+    &_active{
+      color: $primary;
+      padding-right: 70px;
+      border-bottom: 3px solid $primary;
+    }
+    &:last-child{
+    }
+  }
+
+}
+//QUICK NAv STYLING ENDS
