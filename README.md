@@ -4,6 +4,12 @@ It`s a full template with styling all pages made by gulp.
 
 ## Installation
 
+Run npm install to update packages.
+
+```bash
+npm install
+```
+
 Install the [gulp](https://gulpjs.com/docs/en/getting-started/quick-start/) to setup template builder.
 
 ```bash

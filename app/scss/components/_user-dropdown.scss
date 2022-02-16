@@ -5,6 +5,7 @@
   cursor: pointer;
   border-radius: 30px;
   padding: 10px;
+  z-index: $defaultZ+1;
   &.open{
     .user-dropdown__body{
       display: block;

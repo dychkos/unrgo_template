@@ -1,5 +1,5 @@
 /*
- * Example section styling
+ * Article section styling
  */
 
 .big-article{
@@ -64,89 +64,6 @@
 
 }
 
-.comments-block{
-	&__header{
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	&__title{
-		color: $primary;
-	}
-	&__empty{
-		width: 100%;
-		text-align: center;
-		padding: 15px;
-		a{
-			color: $primary;
-			&:hover{
-				text-decoration: underline;
-			}
-		}
-	}
-}
-.comments{
-	margin-top: 25px;
-}
-
-.comment{
-	margin-bottom: 30px;
-	&__header{
-		display: flex;
-		color: $black;
-	}
-	&__text{
-		margin-top: 5px;
-	}
-	&__footer{
-		margin-top: 8px;
-		display: flex;
-		align-items: center;
-		color: $primary;
-	}
-	&__action{
-		margin-right: 14px;
-		cursor: pointer;
-		&:hover{
-			text-decoration: underline;
-		}
-		&:last-child{
-			margin-right:0;
-		}
-	}
-}
-
-.answer{
-	margin-top: 20px;
-	margin-left: 40px;
-	position: relative;
-	padding-left: 30px;
-	&:before{
-		content: "";
-		display: block;
-		position: absolute;
-		left: -20px;
-		height: 22px;
-		width: 22px;
-		top: 50%;
-		background: url("./img/arrow_up.png");
-	}
-}
-
-.add-comment{
-	display: block;
-	width: 100%;
-	&__title{
-		margin-bottom: 16px;
-		color: $primary;
-	}
-	&__btn{
-		float: right;
-	}
-	input,textarea{
-		width: 100%;
-	}
-}
 
 @media only screen and (max-width: 1199px){
 
@@ -169,11 +86,7 @@
 		&__title{
 			padding-top: 18px;
 		}
-		.add-comment{
-			&__btn{
-				width: 100%;
-			}
-		}
+
 
 	}
 	.answer{

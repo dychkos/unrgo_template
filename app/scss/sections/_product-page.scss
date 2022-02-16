@@ -4,11 +4,11 @@
 
 .product-page{
 	color: $black;
-	border-radius: $b-radius;
-	overflow: hidden;
 	&__header{
 		background-color: $background-light;
-		padding: 30px 20px 20px;
+		border-top-left-radius:$b-radius;
+		border-top-right-radius:$b-radius;
+		padding: 30px;
 		width: 100%;
 		position: relative;
 		--bs-gutter-x: 0
@@ -81,7 +81,9 @@
 	}
 	&__content{
 		background-color: $white;
-		padding: 80px;
+		padding: 40px 80px 80px 80px;
+		border-bottom-left-radius: $b-radius;
+		border-bottom-right-radius: $b-radius;
 		width: 100%;
 	}
 	&__quick-nav{
@@ -103,11 +105,10 @@
 			padding: 50px;
 		}
 		&__main{
-			flex-direction: column-reverse;
+			flex-direction: column;
 			gap: 30px;
 		}
 		&__sizes{
-			margin: 20px auto;
 			.sizes__block {
 				width: 100%;
 			}
@@ -120,7 +121,13 @@
 
 @media only screen and (max-width: 991px){
 	.product-page{
-
+		&__links{
+			width: 100%;
+			justify-content: space-around;
+		}
+		&__info{
+			padding-left: 0;
+		}
 	}
 }
 
@@ -128,14 +135,29 @@
 @media only screen and (max-width: 767px){
 	.product-page{
 		&__content{
-			padding: 20px;
+			padding: 30px;
 		}
 	}
 }
 
 
 @media only screen and (max-width: 575px){
-	.example{
-
+	.product-page{
+		&__header{
+			padding: 20px;
+		}
+		&__sizes{
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			.sizes__block {
+				gap: 25px;
+				justify-content: center;
+			}
+		}
+		&__title{
+			margin: 0 0 24px;
+			text-align: center;
+		}
 	}
 }
