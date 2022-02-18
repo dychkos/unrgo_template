@@ -13,10 +13,14 @@
 	}
 }
 .order-final{
-	margin-top: 40px;
+	margin-top: 20px;
 	padding: 20px;
 	border-radius: $b-radius;
 	background-color: #fff;
+	&_inActive{
+		opacity: 0.7;
+
+	}
 	&__title{
 		padding-bottom: 14px;
 		border-bottom: 1px solid $black;

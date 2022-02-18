@@ -1,15 +1,15 @@
 //QUICK NAv STYLING
 .quick-nav{
   display: flex;
-  width: 620px;
-  overflow: auto;
+  overflow-x: auto;
   &__item{
     padding-bottom: 6px;
     border-bottom: 3px solid $black;
     cursor: pointer;
-    padding-right: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     transition-property: border-bottom-color, color;
-    transition-duration: 0.2s;
+    transition-duration: 0.4s;
     white-space: nowrap;
     &:hover{
       color: $hover;
