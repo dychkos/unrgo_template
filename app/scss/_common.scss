@@ -41,6 +41,37 @@ a.link{
 
 }
 
+.confirm{
+	input{
+		display: none !important;
+		&:checked+label::before {
+			background-color: $primary;
+			background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='16' height='16' rx='4' fill='%23FDFFBA'/%3E%3C/svg%3E%0A");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 14px;
+		}
+	}
+	label{
+		padding-left: 36px;
+		position: relative;
+		cursor: pointer;
+		&:before{
+			content: "";
+			position: absolute;
+			left: 0;
+			height: 24px;
+			width: 24px;
+			background-color: $primary;
+			border-radius: 4px;
+			background-image: none;
+			background-size: 0;
+			transition: background-image 0.4s ease;
+		}
+	}
+
+}
+
 .ellipse{
 	padding-left:10px;
 	position: relative;
@@ -181,21 +212,22 @@ textarea{
 	text-align: center;
 	padding: 16px 45px;
 	border-radius: $b-radius;
-	color: #fff;
+	color: inherit;
 	&:focus{
 		outline: none;
 	}
 	&:hover{
-		text-decoration: none;
-		background-color: $hover;
+
 	}
 	&_small{
 		padding: 6px 18px;
 	}
 	&_primary{
 		background-color: $primary;
+		color: #fff;
 		&:hover{
-
+			text-decoration: none;
+			background-color: $hover;
 		}
 		&:active{
 
@@ -325,5 +357,9 @@ select,.select{
 		&_sm {
 			width: 100%
 		}
+	}
+	.btn{
+		padding: 16px 32px;
+
 	}
 }
