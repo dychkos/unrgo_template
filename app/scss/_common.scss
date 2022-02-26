@@ -72,6 +72,15 @@ a.link{
 
 }
 
+.input-group{
+	&__label{
+		color:$black;
+	}
+	&__input{
+		margin-top: 10px;
+	}
+}
+
 .ellipse{
 	padding-left:10px;
 	position: relative;
